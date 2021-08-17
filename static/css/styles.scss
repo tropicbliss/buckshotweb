@@ -1,0 +1,27 @@
+.showcase {
+  &__button {
+    width: 180px;
+  }
+
+  // Hack to prevent the navbar cutting off the main logo
+  &__splash::before {
+    display: block;
+    content: "";
+    height: 60px;
+  }
+
+  &__logo {
+    font-size: 144px; // I need to ensure the logo is kept at a consistent size
+  }
+}
+
+.logo {
+  color: rgb(140, 249, 56); // I love this colour
+}
+
+.features {
+  &__terminal {
+    font-size: 1rem;
+    width: 900px;
+  }
+}

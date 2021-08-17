@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="description"
+      content="A performant and capable Minecraft name sniper."
+    />
+    <meta
+      property="og:title"
+      content="Buckshot - A performant and capable Minecraft name sniper."
+    />
+    <meta
+      property="og:description"
+      content="Buckshot is a Minecraft name sniper written in Rust, powered by the Tokio runtime. It is feature-rich, free and open-source, and powerful. It is able to snipe names that most public snipers will struggle to snipe. What are you waiting for? Click the link to find out more."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://buckshot.tropicbliss.net" />
+    <title>Buckshot - The best free Minecraft name sniper</title>
+    <link rel="icon" href="static/images/favicon-sm.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="static/images/favicon-md.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="static/images/favicon-lg.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/f319779134.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="static/css/termynal.css">
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-crosshairs logo"></i>
+                Buckshot
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Docs
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li><a class="dropdown-item" href="#user-guide">User guide</a></li>
+                          <li><a class="dropdown-item" href="#api">API</a></li>
+                        </ul>
+                      </li>
+                    <li class="nav-item">
+                        <a href="https://github.com/tropicbliss/buckshot" target="_blank" class="nav-link">
+                            <i class="bi bi-github"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="bg-dark text-light p-5 text-center showcase">
+        <div class="container d-flex flex-column showcase__splash">
+            <i class="fas fa-crosshairs mx-auto logo showcase__logo"></i>
+            <h1 class="fs-1 pt-4">Buckshot</h1>
+            <p class="pb-4 pt-1 text-muted">A fast Minecraft name sniper</p>
+            <a href="#user-guide" class="btn btn-outline-warning text-uppercase fw-bold fs-6 mx-auto btn-sm showcase__button">Get started</a>
+        </div>
+    </section>
+    <section class="bg-primary text-light p-5 features" id="features">
+        <div class="container d-flex flex-row justify-content-between">
+            <div class="d-flex flex-column justify-content-center me-5">
+                <div>
+                    <h2 class="fs-3">Features</h2>
+                    <ul class="fs-6">
+                        <li>Mojang account sniping</li>
+                        <li>Microsoft account sniping</li>
+                        <li>GC sniping</li>
+                        <li>Spread (delay between asynchronous sniping requests)</li>
+                        <li>Auto offset</li>
+                        <li>Change skin on snipe</li>
+                        <li>Name queueing</li>
+                        <li>Low latency by opening the TCP connections before sending requests</li>
+                        <li>High requests/second by bypassing HTTP overhead</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="termynal" class="d-none d-lg-block features__terminal" data-termynal data-ty-lineDelay="3">
+                <span data-ty="input">./buckshot</span>
+                <span data-ty>Developed by @tropicbliss#0408 on Discord</span>
+                <span data-ty>THIS SNIPER IS 100% FREE ON GITHUB</span>
+                <span data-ty data-ty-delay="1500">Initialising...</span>
+                <span data-ty data-ty-delay="1500">Measuring offset...</span>
+                <span data-ty>Your offset is: 10 ms</span>
+                <span data-ty data-ty-delay="1500">Sniping Vols in ~113 minutes | sniping at 2021-07-28 13:08:30 (utc)</span>
+                <span data-ty data-ty-delay="250">Successfully signed in</span>
+                <span data-ty data-ty-delay="1500">Setup complete</span>
+                <span data-ty>[fail] 429 @ 2021-07-28 13:08:30.003769</span>
+                <span data-ty>[fail] 403 @ 2021-07-28 13:08:30.005697</span>
+                <span data-ty>[success] 200 @ 2021-07-28 13:08:30.153340</span>
+                <span data-ty>Successfully sniped Vols!</span>
+            </div>
+        </div>
+    </section>
+    <section id="user-guide" class="m-5">
+        <div class="container">
+            <h2 class="fs-3">Setup</h2>
+            <ol>
+                <li>Download the sniper <a href="https://github.com/chronicallyunfunny/buckshot/releases/latest" target="_blank">here</a>.</li>
+                <li>Use Dimension 4 on Windows for time synchronisation.</li>
+                <li>Open up the terminal and navigate to the working directory and run <code>./buckshot-&lt;platform&gt;-&lt;architecture&gt;</code> (if you're on Windows, do yourself a favor and use Windows Terminal instead of <code>cmd.exe</code>). I assume you use MCsniperPY so this process should be relatively straightforward.</li>
+                <li>This should generate config.toml on the same directory in which you can edit.</li>
+                <li>Read the errors. I've spent a large amount of time making the errors easy to read. If you encounter HTTP errors, something might be wrong with the internet or the servers on the other end.</li>
+            </ol>
+        </div>
+    </section>
+    <section class="m-5" id="sniping-tips">
+        <div class="container">
+            <h2 class="fs-3">Moar tips for sniping</h2>
+            <ul>
+                <li>Snipe with a VPS close to <code>api.minecraftservices.com</code> origin server (in N. Virginia) as it will minimise ping fluctuations.</li>
+                <li>Even though this sniper is asynchronous and it is possible to snipe a name with one thread, using a multi-threaded processor can improve performance.</li>
+            </ul>
+        </div>
+    </section>
+    <section class="m-5" id="cli-args">
+        <div class="container">
+            <h2 class="fs-3">Command line arguments</h2>
+            <p>Run <code>buckshot --help</code> or <code>./buckshot --help</code>.</p>
+        </div>
+    </section>
+    <section class="m-5" id="compiling">
+        <div class="container">
+            <h2 class="fs-3">Compiling from source</h2>
+            <ol>
+                <li>Download the <code>rustup</code> toolchain <a href="https://rustup.rs/" target="_blank">here</a>. Follow the instructions for your platform.</li>
+                <li>Run <code>git clone https://github.com/tropicbliss/buckshot.git</code> in an appropriate directory to clone the repo.</li>
+                <li>In the folder named <code>buckshot</code>, run <code>cargo build --release</code>. The resulting executable file after compilation should be in the <code>target/release/</code> directory, relative from the <code>buckshot</code> folder. If you encounter any errors throughout the compilation process, read through the errors as they generally tell you exactly what to do. Typically, when compiling for Linux, you'll need <code>build-essential</code>.</li>
+            </ol>
+        </div>
+    </section>
+    <section class="m-5" id="bug-reporting">
+        <div class="container">
+            <h2 class="fs-3">Bug reporting</h2>
+            <p>Feel free to use the GitHub issues tab. This is a new sniper so there may be tons of bugs.</p>
+        </div>
+    </section>
+    <section id="api" class="p-5 bg-danger text-white api">
+        <div class="container">
+            <h2 class="fs-3">API</h2>
+            <h3 class="fs-4 mt-5">Authentication API</h3>
+            <p>Mojang is moving to Microsoft accounts. Starting December 2020, all new accounts already use the new system, and older accounts will be migrated later. See <a class="link-warning" target="_blank" href="https://www.minecraft.net/en-us/article/java-edition-moving-house">this blog post</a> for more information.</p>
+            <p>There are multiple ways to obtain an access token. However, for the purposes of this sniper, methods that use 2FA cannot be used as name queueing would require user intervention. Everything in this sniper has to be automated, so a trade-off is required in which only accounts that has 2FA disabled can be used by this API (and thus this sniper).</p>
+            <p>This API allows a developer to pass in a user's email and password and receive a bearer token for interacting with Mojang's various APIs.</p>
+            <p>This endpoint has a rate-limit of 3 requests per minute.</p>
+            <h4 class="fs-5 mt-5">Request</h4>
+            <ul>
+                <li>
+                    <p><span class="fw-bold">Method:</span> <code class="text-light">POST</code></p>
+                </li>
+                <li>
+                    <p><span class="fw-bold">Endpoint:</span> <code class="text-light">/api/auth</code></p>
+                </li>
+                <li>
+                    <p><span class="fw-bold">Full URL:</span> <code class="text-light">buckshot.tropicbliss.net/api/auth</code></p>
+                </li>
+                <li>
+                    <p><span class="fw-bold">Headers:</span></p>
+                    <ul>
+                        <li><code class="text-light">Accept: application/json</code></li>
+                    </ul>
+                </li>
+            </ul>
+            <p>As the POST body, simply supply your desired username.</p>
+            <pre><code>{
+    "email": "simple@example.com",
+    "password": "youaremylittlepogchamp"
+}</code></pre>
+            <h4 class="fs-5 mt-5">Response</h4>
+            <h5 class="fs-6">200: OK</h5>
+            <p>Successfully authenticated user! Here is a sample response:</p>
+            <pre><code>{
+    "bearer_token": "foobar"
+}</code></pre>
+            <h5 class="fs-6">400: Bad Request</h5>
+            <p>Something went wrong while authenticating the user. The value of the <code class="text-light">error</code> key in the JSON might tell you more about what went wrong. Feel free to deserialise the JSON to present the error directly to the user as an error message.</p>
+            <pre><code>{
+    "error": "Incorrect email or password"
+}</code></pre>
+            <h5 class="fs-6">429: Too Many Requests</h5>
+            <p>You have exceeded the endpoint's rate-limit. Wait 20 seconds then try again.</p>
+        </div>
+    </section>
+    <footer class="p-5 bg-dark text-white text-center position-relative">
+        <div class="container d-flex flex-row justify-content-between">
+            <p class="fs-6">Designed with ♥ by <a class="link-warning" href="https://twitter.com/tropicbliss_" target="_blank">tropicbliss</a>. Licensed under the <a class="link-warning" href="https://github.com/tropicbliss/buckshot/blob/main/LICENSE" target="_blank">MIT License</a>.</p>
+            <!-- This is kinda my first website I made. Hopefully the liberal amounts of Bootstrap used doesn't scare you away :P. I was gonna make this website in pure css but then I was too lazy to make a nav bar and find a hamburger icon svg for mobile. So one thing led to another and this monstrosity of a website is created. -->
+            <div class="btn-group d-none d-lg-block">
+                <a href="https://twitter.com/tropicbliss_" target="_blank" class="btn btn-outline-warning">
+                    <i class="bi bi-twitter"></i>
+                </a>
+                <a href="https://github.com/tropicbliss" target="_blank" class="btn btn-outline-warning">
+                    <i class="bi bi-github"></i>
+                </a>
+              </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="static/js/termynal.js" data-termynal-container="#termynal"></script>
+</body>
+</html>
