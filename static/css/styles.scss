@@ -26,6 +26,9 @@
   }
 }
 
-.white-bg-code {
-  color: rgb(214, 51, 132);
+// Make the colour of the content in code elems consistent throughout the API section
+.api {
+  &__block-code {
+    color: rgb(214, 51, 132);
+  }
 }
