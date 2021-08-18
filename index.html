@@ -162,19 +162,19 @@
                 </li>
             </ul>
             <p>As the POST body, simply supply your desired username.</p>
-            <pre><code>{
+            <pre><code class="white-bg-code">{
     "email": "simple@example.com",
     "password": "youaremylittlepogchamp"
 }</code></pre>
             <h4 class="fs-5 mt-5">Response</h4>
             <h5 class="fs-6">200: OK</h5>
             <p>Successfully authenticated user! Here is a sample response:</p>
-            <pre><code>{
+            <pre><code class="white-bg-code">{
     "bearer_token": "foobar"
 }</code></pre>
             <h5 class="fs-6">400: Bad Request</h5>
             <p>Something went wrong while authenticating the user. The value of the <code>error</code> key in the JSON might tell you more about what went wrong. Feel free to deserialise the JSON to present the error directly to the user as an error message.</p>
-            <pre><code>{
+            <pre><code class="white-bg-code">{
     "error": "Incorrect email or password"
 }</code></pre>
             <h5 class="fs-6">429: Too Many Requests</h5>
