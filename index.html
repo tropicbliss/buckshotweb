@@ -135,7 +135,7 @@
             <p>Feel free to use the GitHub issues tab. This is a new sniper so there may be tons of bugs.</p>
         </div>
     </section>
-    <section id="api" class="p-5">
+    <section id="api" section="api" class="p-5">
         <div class="container">
             <h2 class="fs-3">API</h2>
             <h3 class="fs-4 mt-5">Authentication API</h3>
@@ -162,19 +162,19 @@
                 </li>
             </ul>
             <p>As the POST body, simply supply your desired username.</p>
-            <pre><code class="white-bg-code">{
+            <pre><code class="api__block-code">{
     "email": "simple@example.com",
     "password": "youaremylittlepogchamp"
 }</code></pre>
             <h4 class="fs-5 mt-5">Response</h4>
             <h5 class="fs-6">200: OK</h5>
             <p>Successfully authenticated user! Here is a sample response:</p>
-            <pre><code class="white-bg-code">{
+            <pre><code class="api__block-code">{
     "bearer_token": "foobar"
 }</code></pre>
             <h5 class="fs-6">400: Bad Request</h5>
             <p>Something went wrong while authenticating the user. The value of the <code>error</code> key in the JSON might tell you more about what went wrong. Feel free to deserialise the JSON to present the error directly to the user as an error message.</p>
-            <pre><code class="white-bg-code">{
+            <pre><code class="api__block-code">{
     "error": "Incorrect email or password"
 }</code></pre>
             <h5 class="fs-6">429: Too Many Requests</h5>
