@@ -17,7 +17,7 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://buckshot.tropicbliss.net" />
-    <title>Buckshot - The best free Minecraft name sniper</title>
+    <title>Buckshot - A free Minecraft name sniper</title>
     <link rel="icon" href="static/images/favicon-sm.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="static/images/favicon-md.png" />
     <link rel="apple-touch-icon" sizes="144x144" href="static/images/favicon-lg.png" />
@@ -61,7 +61,7 @@
         <div class="container d-flex flex-column showcase__splash">
             <i class="fas fa-crosshairs mx-auto logo showcase__logo"></i>
             <h1 class="fs-1 pt-4">Buckshot</h1>
-            <p class="pb-4 pt-1 text-muted">A fast Minecraft name sniper</p>
+            <p class="pb-4 pt-1 text-white-50">A fast Minecraft name sniper</p>
             <a href="#user-guide" class="btn btn-outline-warning text-uppercase fw-bold fs-6 mx-auto btn-sm showcase__button">Get started</a>
         </div>
     </section>
@@ -100,72 +100,64 @@
             </div>
         </div>
     </section>
-    <section id="user-guide" class="m-5">
-        <div class="container">
+    <section id="user-guide" class="p-5 bg-dark text-light">
+        <div class="container mb-5">
             <h2 class="fs-3">Setup</h2>
             <ol>
-                <li>Download the <a rel="noopener" href="https://github.com/chronicallyunfunny/buckshot/releases/latest" target="_blank">sniper</a>.</li>
+                <li>Download the <a rel="noopener" class="text-warning" href="https://github.com/chronicallyunfunny/buckshot/releases/latest" target="_blank">sniper</a>.</li>
                 <li>Use Dimension 4 on Windows for time synchronisation.</li>
-                <li>Open up the terminal and navigate to the working directory and run <code>./buckshot-&lt;platform&gt;-&lt;architecture&gt;</code> (if you're on Windows, do yourself a favor and use Windows Terminal instead of <code>cmd.exe</code>). I assume you use MCsniperPY so this process should be relatively straightforward.</li>
+                <li>Open up the terminal and navigate to the working directory and run <kbd class="text-info">./buckshot-&lt;platform&gt;-&lt;architecture&gt;</kbd> (if you're on Windows, do yourself a favor and use Windows Terminal instead of <code class="text-info">cmd.exe</code>). I assume you use MCsniperPY so this process should be relatively straightforward.</li>
                 <li>This should generate config.toml on the same directory in which you can edit.</li>
                 <li>Read the errors. I've spent a large amount of time making the errors easy to read. If you encounter HTTP errors, something might be wrong with the internet or the servers on the other end.</li>
             </ol>
         </div>
-    </section>
-    <section class="m-5" id="sniping-tips">
-        <div class="container">
+        <div class="container mb-5">
             <h2 class="fs-3">Moar tips for sniping</h2>
             <ul>
-                <li>Snipe with a VPS close to <code>api.minecraftservices.com</code> origin server (in N. Virginia) as it will minimise ping fluctuations.</li>
+                <li>Snipe with a VPS close to <code class="text-info">api.minecraftservices.com</code> origin server (in N. Virginia) as it will minimise ping fluctuations.</li>
                 <li>Even though this sniper is asynchronous and it is possible to snipe a name with one thread, using a multi-threaded processor can improve performance.</li>
             </ul>
         </div>
-    </section>
-    <section class="m-5" id="cli-args">
-        <div class="container">
+        <div class="container mb-5">
             <h2 class="fs-3">Command line arguments</h2>
-            <p>Run <code>buckshot --help</code> or <code>./buckshot --help</code>.</p>
+            <p>Run <kbd class="text-info">buckshot --help</kbd> or <kbd class="text-info">./buckshot --help</kbd>.</p>
         </div>
-    </section>
-    <section class="m-5" id="compiling">
-        <div class="container">
+        <div class="container mb-5">
             <h2 class="fs-3">Compiling from source</h2>
             <ol>
-                <li>Download the <code><a rel="noopener" href="https://rustup.rs/" target="_blank">rustup</a></code> toolchain. Follow the instructions for your platform.</li>
-                <li>Run <code>git clone https://github.com/tropicbliss/buckshot.git</code> in an appropriate directory to clone the repo.</li>
-                <li>In the folder named <code>buckshot</code>, run <code>cargo build --release</code>. The resulting executable file after compilation should be in the <code>target/release/</code> directory, relative from the <code>buckshot</code> folder. If you encounter any errors throughout the compilation process, read through the errors as they generally tell you exactly what to do. Typically, when compiling for Linux, you'll need <code>build-essential</code>.</li>
+                <li>Download the <code><a class="text-warning" rel="noopener" href="https://rustup.rs/" target="_blank">rustup</a></code> toolchain. Follow the instructions for your platform.</li>
+                <li>Run <kbd class="text-info">git clone https://github.com/tropicbliss/buckshot.git</kbd> in an appropriate directory to clone the repo.</li>
+                <li>In the folder named <code class="text-info">buckshot</code>, run <kbd class="text-info">cargo build --release</kbd>. The resulting executable file after compilation should be in the <code class="text-info">target/release/</code> directory, relative from the <code class="text-info">buckshot</code> folder. If you encounter any errors throughout the compilation process, read through the errors as they generally tell you exactly what to do. Typically, when compiling for Linux, you'll need <code class="text-info">build-essential</code>.</li>
             </ol>
         </div>
-    </section>
-    <section class="m-5" id="bug-reporting">
         <div class="container">
             <h2 class="fs-3">Bug reporting</h2>
             <p>Feel free to use the GitHub issues tab. This is a new sniper so there may be tons of bugs.</p>
         </div>
     </section>
-    <section id="api" class="p-5 bg-danger text-white api">
+    <section id="api" class="p-5 api">
         <div class="container">
             <h2 class="fs-3">API</h2>
             <h3 class="fs-4 mt-5">Authentication API</h3>
-            <p>Mojang is moving to Microsoft accounts. Starting December 2020, all new accounts already use the new system, and older accounts will be migrated later. See <a rel="noopener" class="link-warning" target="_blank" href="https://www.minecraft.net/en-us/article/java-edition-moving-house">this blog post</a> for more information.</p>
+            <p>Mojang is moving to Microsoft accounts. Starting December 2020, all new accounts already use the new system, and older accounts will be migrated later. See <a rel="noopener" target="_blank" href="https://www.minecraft.net/en-us/article/java-edition-moving-house">this blog post</a> for more information.</p>
             <p>There are multiple ways to obtain an access token. However, for the purposes of this sniper, methods that use 2FA cannot be used as name queueing would require user intervention. Everything in this sniper has to be automated, so a trade-off is required in which only accounts that has 2FA disabled can be used by this API (and thus this sniper).</p>
             <p>This API allows a developer to pass in a user's email and password and receive a bearer token for interacting with Mojang's various APIs.</p>
             <p>This endpoint has a rate-limit of 3 requests per minute.</p>
             <h4 class="fs-5 mt-5">Request</h4>
             <ul>
                 <li>
-                    <p><span class="fw-bold">Method:</span> <code class="text-light">POST</code></p>
+                    <p><span class="fw-bold">Method:</span> <code>POST</code></p>
                 </li>
                 <li>
-                    <p><span class="fw-bold">Endpoint:</span> <code class="text-light">/api/auth</code></p>
+                    <p><span class="fw-bold">Endpoint:</span> <code>/api/auth</code></p>
                 </li>
                 <li>
-                    <p><span class="fw-bold">Full URL:</span> <code class="text-light">buckshot.tropicbliss.net/api/auth</code></p>
+                    <p><span class="fw-bold">Full URL:</span> <code>buckshot.tropicbliss.net/api/auth</code></p>
                 </li>
                 <li>
                     <p><span class="fw-bold">Headers:</span></p>
                     <ul>
-                        <li><code class="text-light">Accept: application/json</code></li>
+                        <li><code>Accept: application/json</code></li>
                     </ul>
                 </li>
             </ul>
@@ -181,7 +173,7 @@
     "bearer_token": "foobar"
 }</code></pre>
             <h5 class="fs-6">400: Bad Request</h5>
-            <p>Something went wrong while authenticating the user. The value of the <code class="text-light">error</code> key in the JSON might tell you more about what went wrong. Feel free to deserialise the JSON to present the error directly to the user as an error message.</p>
+            <p>Something went wrong while authenticating the user. The value of the <code>error</code> key in the JSON might tell you more about what went wrong. Feel free to deserialise the JSON to present the error directly to the user as an error message.</p>
             <pre><code>{
     "error": "Incorrect email or password"
 }</code></pre>
