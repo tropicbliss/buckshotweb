@@ -110,27 +110,19 @@
                 <li>This should generate config.toml on the same directory in which you can edit.</li>
                 <li>Read the errors. I've spent a large amount of time making the errors easy to read. If you encounter HTTP errors, something might be wrong with the internet or the servers on the other end.</li>
             </ol>
-        </div>
-        <div class="container my-5">
             <h2>Moar tips for sniping</h2>
             <ul>
                 <li>Snipe with a VPS close to <code class="text-info">api.minecraftservices.com</code> origin server (in N. Virginia) as it will minimise ping fluctuations.</li>
                 <li>Even though this sniper is asynchronous and it is possible to snipe a name with one thread, using a multi-threaded processor can improve performance.</li>
             </ul>
-        </div>
-        <div class="container my-5">
             <h2>Command line arguments</h2>
             <p>Run <kbd class="text-info">buckshot --help</kbd> or <kbd class="text-info">./buckshot --help</kbd>.</p>
-        </div>
-        <div class="container my-5">
             <h2>Compiling from source</h2>
             <ol>
                 <li>Download the <code><a class="text-warning" rel="noopener" href="https://rustup.rs/" target="_blank">rustup</a></code> toolchain. Follow the instructions for your platform.</li>
                 <li>Run <kbd class="text-info">git clone https://github.com/tropicbliss/buckshot.git</kbd> in an appropriate directory to clone the repo.</li>
                 <li>In the folder named <code class="text-info">buckshot</code>, run <kbd class="text-info">cargo build --release</kbd>. The resulting executable file after compilation should be in the <code class="text-info">target/release/</code> directory, relative from the <code class="text-info">buckshot</code> folder. If you encounter any errors throughout the compilation process, read through the errors as they generally tell you exactly what to do. Typically, when compiling for Linux, you'll need <code class="text-info">build-essential</code>.</li>
             </ol>
-        </div>
-        <div class="container">
             <h2>Bug reporting</h2>
             <p>Feel free to use the GitHub issues tab. This is a new sniper so there may be tons of bugs.</p>
         </div>
@@ -138,12 +130,12 @@
     <section id="api" class="p-5 bg-dark text-light">
         <div class="container">
             <h2>API</h2>
-            <h3 class="mt-5">Authentication API</h3>
+            <h3>Authentication API</h3>
             <p>Mojang is moving to Microsoft accounts. Starting December 2020, all new accounts already use the new system, and older accounts will be migrated later. See <a class="text-warning" rel="noopener" target="_blank" href="https://www.minecraft.net/en-us/article/java-edition-moving-house">this blog post</a> for more information.</p>
             <p>There are multiple ways to obtain an access token. However, for the purposes of this sniper, methods that use 2FA cannot be used as name queueing would require user intervention. Everything in this sniper has to be automated, so a trade-off is required in which only accounts that has 2FA disabled can be used by this API (and thus this sniper).</p>
             <p>This API allows a developer to pass in a user's email and password and receive a bearer token for interacting with Mojang's various APIs.</p>
             <p>This endpoint has a rate-limit of 3 requests per minute.</p>
-            <h4 class="mt-5">Request</h4>
+            <h4 >Request</h4>
             <ul>
                 <li>
                     <p><span class="fw-bold">Method:</span> <code class="text-info">POST</code></p>
@@ -166,7 +158,7 @@
     "email": "simple@example.com",
     "password": "youaremylittlepogchamp"
 }</code></pre>
-            <h4 class="mt-5">Response</h4>
+            <h4>Response</h4>
             <h5>200: OK</h5>
             <p>Successfully authenticated user! Here is a sample response:</p>
             <pre><code class="api__block-code">{
