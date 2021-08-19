@@ -60,7 +60,7 @@
     <section class="bg-dark text-light p-5 text-center showcase">
         <div class="container d-flex flex-column showcase__splash">
             <i class="fas fa-crosshairs mx-auto logo showcase__logo"></i>
-            <h1 class="fs-1 pt-4">Buckshot</h1>
+            <h1 class="pt-4">Buckshot</h1>
             <p class="pb-4 pt-1 text-white-50">A fast Minecraft name sniper</p>
             <a href="#user-guide" class="btn btn-outline-warning text-uppercase fw-bold fs-6 mx-auto btn-sm showcase__button">Get started</a>
         </div>
@@ -69,7 +69,7 @@
         <div class="container d-flex flex-row justify-content-between">
             <div class="d-flex flex-column justify-content-center me-5">
                 <div>
-                    <h2 class="fs-3">Features</h2>
+                    <h2>Features</h2>
                     <ul class="fs-6">
                         <li>Mojang account sniping</li>
                         <li>Microsoft account sniping</li>
@@ -102,7 +102,7 @@
     </section>
     <section id="user-guide" class="p-5 bg-dark text-light">
         <div class="container">
-            <h2 class="fs-3">Setup</h2>
+            <h2>Setup</h2>
             <ol>
                 <li>Download the <a rel="noopener" class="text-warning" href="https://github.com/chronicallyunfunny/buckshot/releases/latest" target="_blank">sniper</a>.</li>
                 <li>Use Dimension 4 on Windows for time synchronisation.</li>
@@ -112,18 +112,18 @@
             </ol>
         </div>
         <div class="container my-5">
-            <h2 class="fs-3">Moar tips for sniping</h2>
+            <h2>Moar tips for sniping</h2>
             <ul>
                 <li>Snipe with a VPS close to <code class="text-info">api.minecraftservices.com</code> origin server (in N. Virginia) as it will minimise ping fluctuations.</li>
                 <li>Even though this sniper is asynchronous and it is possible to snipe a name with one thread, using a multi-threaded processor can improve performance.</li>
             </ul>
         </div>
         <div class="container my-5">
-            <h2 class="fs-3">Command line arguments</h2>
+            <h2>Command line arguments</h2>
             <p>Run <kbd class="text-info">buckshot --help</kbd> or <kbd class="text-info">./buckshot --help</kbd>.</p>
         </div>
         <div class="container my-5">
-            <h2 class="fs-3">Compiling from source</h2>
+            <h2>Compiling from source</h2>
             <ol>
                 <li>Download the <code><a class="text-warning" rel="noopener" href="https://rustup.rs/" target="_blank">rustup</a></code> toolchain. Follow the instructions for your platform.</li>
                 <li>Run <kbd class="text-info">git clone https://github.com/tropicbliss/buckshot.git</kbd> in an appropriate directory to clone the repo.</li>
@@ -131,19 +131,19 @@
             </ol>
         </div>
         <div class="container">
-            <h2 class="fs-3">Bug reporting</h2>
+            <h2>Bug reporting</h2>
             <p>Feel free to use the GitHub issues tab. This is a new sniper so there may be tons of bugs.</p>
         </div>
     </section>
     <section id="api" class="p-5 bg-dark text-light">
         <div class="container">
-            <h2 class="fs-3">API</h2>
-            <h3 class="fs-4 mt-5">Authentication API</h3>
+            <h2>API</h2>
+            <h3 class="mt-5">Authentication API</h3>
             <p>Mojang is moving to Microsoft accounts. Starting December 2020, all new accounts already use the new system, and older accounts will be migrated later. See <a class="text-warning" rel="noopener" target="_blank" href="https://www.minecraft.net/en-us/article/java-edition-moving-house">this blog post</a> for more information.</p>
             <p>There are multiple ways to obtain an access token. However, for the purposes of this sniper, methods that use 2FA cannot be used as name queueing would require user intervention. Everything in this sniper has to be automated, so a trade-off is required in which only accounts that has 2FA disabled can be used by this API (and thus this sniper).</p>
             <p>This API allows a developer to pass in a user's email and password and receive a bearer token for interacting with Mojang's various APIs.</p>
             <p>This endpoint has a rate-limit of 3 requests per minute.</p>
-            <h4 class="fs-5 mt-5">Request</h4>
+            <h4 class="mt-5">Request</h4>
             <ul>
                 <li>
                     <p><span class="fw-bold">Method:</span> <code class="text-info">POST</code></p>
@@ -166,24 +166,24 @@
     "email": "simple@example.com",
     "password": "youaremylittlepogchamp"
 }</code></pre>
-            <h4 class="fs-5 mt-5">Response</h4>
-            <h5 class="fs-6">200: OK</h5>
+            <h4 class="mt-5">Response</h4>
+            <h5>200: OK</h5>
             <p>Successfully authenticated user! Here is a sample response:</p>
             <pre><code class="api__block-code">{
     "bearer_token": "foobar"
 }</code></pre>
-            <h5 class="fs-6">400: Bad Request</h5>
+            <h5>400: Bad Request</h5>
             <p>Something went wrong while authenticating the user. The value of the <code class="text-info">error</code> key in the JSON might tell you more about what went wrong. Feel free to deserialise the JSON to present the error directly to the user as an error message.</p>
             <pre><code class="api__block-code">{
     "error": "Incorrect email or password"
 }</code></pre>
-            <h5 class="fs-6">429: Too Many Requests</h5>
+            <h5>429: Too Many Requests</h5>
             <p>You have exceeded the endpoint's rate-limit. Wait 20 seconds then try again.</p>
         </div>
     </section>
     <footer class="p-5 bg-dark text-white text-center position-relative">
         <div class="container d-flex flex-row justify-content-between">
-            <p class="fs-6">Designed with ♥ by <a rel="noopener" class="link-warning" href="https://twitter.com/tropicbliss_" target="_blank">tropicbliss</a>. Licensed under the <a rel="noopener" class="link-warning" href="https://github.com/tropicbliss/buckshot/blob/main/LICENSE" target="_blank">MIT License</a>.</p>
+            <p>Designed with ♥ by <a rel="noopener" class="link-warning" href="https://twitter.com/tropicbliss_" target="_blank">tropicbliss</a>. Licensed under the <a rel="noopener" class="link-warning" href="https://github.com/tropicbliss/buckshot/blob/main/LICENSE" target="_blank">MIT License</a>.</p>
             <!-- This is kinda my first website I made. Hopefully the liberal amounts of Bootstrap used doesn't scare you away :P. I was gonna make this website in pure css but then I was too lazy to make a nav bar and find a hamburger icon svg for mobile. So one thing led to another and this monstrosity of a website is created. -->
             <div class="btn-group d-none d-lg-block">
                 <a rel="noopener" href="https://twitter.com/tropicbliss_" target="_blank" class="btn btn-outline-warning">
