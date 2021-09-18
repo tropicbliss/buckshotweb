@@ -44,7 +44,7 @@
                         </a>
                         <ul class="dropdown-menu">
                           <li><a class="dropdown-item" href="#user-guide">User Guide</a></li>
-                          <li><a class="dropdown-item" href="#api">API</a></li>
+                          <li><a class="dropdown-item" href="#config-guide">Config Guide</a></li>
                         </ul>
                       </li>
                     <li class="nav-item">
@@ -69,10 +69,10 @@
             <div class="row align-items-center justify-content-between">
                 <div id="termynal" class="d-none d-sm-block col-lg me-lg-4 mb-lg-0 mb-4 features__terminal" data-termynal data-ty-lineDelay="3" >
                     <span data-ty="input">./buckshot</span>
-                    <span data-ty>⌛ Initialising...</span>
-                    <span data-ty="progress" data-ty-progressChar="="></span>
-                    <span data-ty>✨ Initialisation complete. Your offset is: 10 ms</span>
-                    <span data-ty data-ty-delay="1500">Sniping Vols in ~113 minutes | sniping at 2021-07-28 13:08:30 (utc)</span>
+                    <span data-ty data-ty-delay="250">Initialising...</span>
+                    <span data-ty data-ty-delay="250">Calculating offset...</span>
+                    <span data-ty>Your offset is: 9ms</span>
+                    <span data-ty data-ty-delay="1500">Sniping Vols in a week | sniping at 2021-07-28 13:08:30 (utc)</span>
                     <span data-ty data-ty-delay="250">Successfully signed in</span>
                     <span data-ty data-ty-delay="1500">Setup complete</span>
                     <span data-ty>[fail] 429 @ 2021-07-28 13:08:30.003769</span>
@@ -102,10 +102,9 @@
             <h2>Setup</h2>
             <ol>
                 <li>Download the <a rel="noopener" class="text-warning" href="https://github.com/chronicallyunfunny/buckshot/releases/latest" target="_blank">sniper</a>.</li>
-                <li>Use Dimension 4 on Windows for time synchronisation.</li>
-                <li>Open up the terminal and navigate to the working directory and run <kbd class="text-info">./buckshot-&lt;platform&gt;-&lt;architecture&gt;</kbd> (if you're on Windows, do yourself a favor and use Windows Terminal instead of <code class="text-info">cmd.exe</code>). I assume you use MCsniperPY so this process should be relatively straightforward.</li>
-                <li>This should generate config.toml on the same directory in which you can edit.</li>
-                <li>Read the errors. I've spent a large amount of time making the errors easy to read. If you encounter HTTP errors, something might be wrong with the internet or the servers on the other end.</li>
+                <li>Download Dimension 4 on Windows or <code class="text-info">chrony</code> on Linux for time synchronisation.</li>
+                <li>Open up the terminal and navigate to the working directory and run <kbd class="text-info">./buckshot</kbd> (if you're on Windows, do yourself a favor and use Windows Terminal instead of <code class="text-info">cmd.exe</code>). I assume you use MCsniperPY so this process should be relatively straightforward.</li>
+                <li>This should generate <code class="text-info">config.toml</code> on the same directory in which you can edit.</li>
             </ol>
             <h2>Moar tips for sniping</h2>
             <ul>
@@ -122,52 +121,6 @@
             </ol>
             <h2>Bug reporting</h2>
             <p>Feel free to use the GitHub issues tab. This is a new sniper so there may be tons of bugs.</p>
-        </div>
-    </section>
-    <section id="api" class="p-5 bg-dark text-light api">
-        <div class="container">
-            <h2>API</h2>
-            <h3>Authentication API</h3>
-            <p>Mojang is moving to Microsoft accounts. Starting December 2020, all new accounts already use the new system, and older accounts will be migrated later. See <a class="text-warning" rel="noopener" target="_blank" href="https://www.minecraft.net/en-us/article/java-edition-moving-house">this blog post</a> for more information.</p>
-            <p>There are multiple ways to obtain an access token. However, for the purposes of this sniper, methods that use 2FA cannot be used as name queueing would require user intervention. Everything in this sniper has to be automated, so a trade-off is required in which only accounts that has 2FA disabled can be used by this API (and thus this sniper).</p>
-            <p>This API allows a developer to pass in a user's email and password and receive a bearer token for interacting with Mojang's various APIs.</p>
-            <p>This endpoint has a rate-limit of 3 requests per minute.</p>
-            <h4 >Request</h4>
-            <ul>
-                <li>
-                    <p><span class="fw-bold">Method:</span> <code class="text-info">POST</code></p>
-                </li>
-                <li>
-                    <p><span class="fw-bold">Endpoint:</span> <code class="text-info">/api/auth</code></p>
-                </li>
-                <li>
-                    <p><span class="fw-bold">Full URL:</span> <code class="text-info">buckshot.tropicbliss.net/api/auth</code></p>
-                </li>
-                <li>
-                    <p><span class="fw-bold">Headers:</span></p>
-                    <ul>
-                        <li><code class="text-info">Accept: application/json</code></li>
-                    </ul>
-                </li>
-            </ul>
-            <p>As the POST body, simply supply your desired username.</p>
-            <pre><code class="api__block-code">{
-    "email": "simple@example.com",
-    "password": "youaremylittlepogchamp"
-}</code></pre>
-            <h4>Response</h4>
-            <h5>200: OK</h5>
-            <p>Successfully authenticated user! Here is a sample response:</p>
-            <pre><code class="api__block-code">{
-    "bearer_token": "foobar"
-}</code></pre>
-            <h5>400: Bad Request</h5>
-            <p>Something went wrong while authenticating the user. The value of the <code class="text-info">error</code> key in the JSON might tell you more about what went wrong. Feel free to deserialise the JSON to present the error directly to the user as an error message.</p>
-            <pre><code class="api__block-code">{
-    "error": "Incorrect email or password"
-}</code></pre>
-            <h5>429: Too Many Requests</h5>
-            <p>You have exceeded the endpoint's rate-limit. Wait 20 seconds then try again.</p>
         </div>
     </section>
     <footer class="p-5 bg-dark text-white text-center position-relative">
